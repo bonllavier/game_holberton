@@ -34,7 +34,7 @@ def get_correction_id(id_task, auth_token):
     correction_json = url_response.json()
 
     if ('error' in correction_json):
-        print('error correction')
+        print(correction_json.get('error'))
         correction_json = None
         return None
     return (correction_json.get('id'))
