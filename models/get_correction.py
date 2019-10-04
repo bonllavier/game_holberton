@@ -2,6 +2,7 @@
 """ Given a user's id_task, returns the correction id made on that task"""
 
 import sys
+import time
 
 
 def get_correction_id(id_task, auth_token):
