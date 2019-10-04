@@ -2,7 +2,8 @@
 'index of status'
 from api.views import app_views
 from flask import jsonify, abort, request
-from models import storage, get_token
+from models import storage
+from models.get_token import get_token
 from models.user import User
 
 
@@ -19,26 +20,23 @@ def post_user():
         abort(400, "Missing api key")
 
     dict_parameters = request.get_json()
-    email = dict_parameters("email")
-    password = dict_parameters("password")
-    api_key = dict_parameters("api_key")
+    email = dict_parameters.get("email")
+    password = dict_parameters.get("password")
+    api_key = dict_parameters.get("api_key")
 
     auth_token = get_token(email, password, api_key);
     if auth_token:
-        user = storage.__session.query(User).filter(User.email == email).one_or_none()
+        user = storage.check_user(email)
         if user:
+            return jsonify({"user": "exist"}), 200
             ##definir variables en db
         else:
-            new_user = User(email, password, api_key, auth_token)
+            return jsonify({"user": "No exist"}), 200
+            #new_user = User(email, password, api_key, auth_token)
             # set a attributes
-            new_user.save()
+            # new_user.save()
     else:
         return jsonify({"email": email, "tries": 0, "status": None}), 400
-
-#    state = State(**request.get_json())
-#    state.save()
-    
-
 
 @app_views.route('/states/<state_id>', methods=['PUT'])
 def put_state_by_id(state_id):
