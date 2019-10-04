@@ -2,6 +2,7 @@
 """ Given a user's id_task, returns the correction id made on that task"""
 
 import sys
+import time
 
 
 def get_correction_id(id_task, auth_token):
@@ -33,11 +34,7 @@ def get_correction_id(id_task, auth_token):
     correction_json = url_response.json()
 
     if ('error' in correction_json):
-        print('error correction')
+        print(correction_json.get('error'))
         correction_json = None
         return None
-
-    print(correction_json.get('id'))
     return (correction_json.get('id'))
-
-get_correction_id(sys.argv[1], sys.argv[2])

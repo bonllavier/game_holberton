@@ -15,18 +15,17 @@ class User(Base):
     id = Column(String(60), primary_key=True, nullable=False)
     email = Column(String(60), nullable=False)
     api_key = Column(String(60), nullable=False)
-    auth_token = Column(String(128), nullable=False)
-    tries = Column(Integer, default=0)
-
+    turns_ToDo = Column(Integer, default=0)
+    turns_done = Column(Integer, default=0)
+    points = Column(Integer, default=0)
 
     def __init__(self, email, api_key, auth_token):
         """Instantiation of base model class
         """
         self.id = str(uuid.uuid4())
-        self.email = id
+        self.email = email
         self.api_key = api_key
         self.auth_token = auth_token
-        self.tries = 8
 
     def get_proyect_list(self, password):
         """get_proyect_list | get code of proyects

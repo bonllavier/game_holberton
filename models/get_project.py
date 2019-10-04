@@ -36,7 +36,5 @@ def get_project(id_project, auth_token):
     task_list = []
     for task in dict_tasks:
         task_list.append(task['id'])
-    print(task_list)
-    return (task_list)
 
-get_project(sys.argv[1], sys.argv[2])
+    return (task_list)

@@ -2,7 +2,7 @@
 """ Given a user's id_correction, ask for a correction of a task"""
 
 import sys
-
+import time
 
 def get_checkers(id_correction, auth_token):
     """
@@ -25,24 +25,32 @@ def get_checkers(id_correction, auth_token):
     h = {
         'Content-Type': 'application/json',
     }
-
-    url_response = requests.get(dest_url, h)
-    checkers_dict = url_response.json()
+    checkers_dict = {}
+    test = 1
+    while test:
+        time.sleep(5)
+        url_response = requests.get(dest_url, h)
+        checkers_dict = url_response.json()
+        if 'Done' not in checkers_dict.get('status'):
+            print("try again")
+        else:
+            test = 0
 
     if ('error' in checkers_dict):
         print('error checkers')
         checkers_dict = None
         return None
 
+    results_list = []
     count = 0
     if 'result_display' in checkers_dict:
         results = checkers_dict.get('result_display')
+
         if 'checks' in results:
             results_list = results.get('checks')
+            print(results_list)
             for i in results_list:
                 if (i.get('passed') is True):
                     count = count + 1
 
-    print(count)
-
-get_checkers(sys.argv[1], sys.argv[2])
+    return (count, results_list)
