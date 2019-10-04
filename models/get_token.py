@@ -38,9 +38,7 @@ def get_token(email, password, api_key):
     if ('error' in auth_token_json):
         print('error token')
         auth_token = None
-        return (None)
 
-    print(auth_token_json.get('auth_token'))
-    return (auth_token_json.get('auth_token'))
-
-get_token(sys.argv[1], sys.argv[2], sys.argv[3])
+    auth_token = auth_token_json.get('auth_token')
+    print(auth_token)
+    return (auth_token)
