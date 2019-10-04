@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """api file with the api flask instance"""
 from flask import Flask, jsonify, make_response
-#from models import storage
+from models import storage
 from api.views import app_views
 from os import getenv
 from flask_cors import CORS
@@ -17,7 +17,7 @@ app.register_blueprint(app_views)
 @app.teardown_appcontext
 def shutdown_session(exception=None):
     "close the session"
-#    storage.close()
+    storage.close()
 
 
 @app.errorhandler(404)
@@ -26,5 +26,4 @@ def not_found(e):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 if __name__ == '__main__':
-    app.run(host=getenv("HBNB_API_HOST"),
-            port=int(getenv("HBNB_API_PORT")), threaded=True)
+    app.run("0.0.0.0", port=5001, threaded=True)

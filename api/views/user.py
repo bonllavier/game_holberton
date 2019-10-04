@@ -27,10 +27,11 @@ def post_user():
     if auth_token:
         user = storage.__session.query(User).filter(User.email == email).one_or_none()
         if user:
+            pass
             ##definir variables en db
         else:
             new_user = User(email, password, api_key, auth_token)
-            # set a attributes
+            new_user.get_id_proyect(password)
             new_user.save()
     else:
         return jsonify({"email": email, "tries": 0, "status": None}), 400
