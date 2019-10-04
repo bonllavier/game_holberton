@@ -34,14 +34,15 @@ def post_user():
             user.set_done()
             user.get_id_pj(password)
             available_turns = user.calc()
+            user.save()
             return jsonify({"points": user.points,
                             "available_turns": available_turns,
                             "id_user": user.id}), 200
         else:
             new_user = User(email, api_key, auth_token)
             new_user.get_id_pj(password)
-            new_user.save()
             available_turns = new_user.calc()
+            new_user.save()
             return jsonify({"points": new_user.points,
                             "available_turns": available_turns,
                             "id_user": new_user.id}), 200
@@ -49,8 +50,9 @@ def post_user():
         return jsonify({"id": None, "available_turns": 0, "points": None}), 400
 
 @app_views.route('/points/<user_id>', methods=['PUT'])
-def put_state_by_id(user_id):
+def put_user(user_id):
     'retrive an object into a json'
+    print("####in####")
     if not request.get_json():
         abort(400, "Not a JSON")
 
@@ -71,27 +73,3 @@ def put_state_by_id(user_id):
 def user():
     """retrive an object into a json"""
     return jsonify({"nombre":"juan"})
-
-
-@app_views.route("states/<state_id>")
-def get_state_by_id(state_id):
-    'retrive an object into a json'
-
-    state = storage.get("State", state_id)
-    if state:
-        return jsonify(state.to_dict())
-    else:
-        abort(404)
-
-
-@app_views.route('states/<state_id>', methods=['DELETE'])
-def delete_state_by_id(state_id):
-    'retrive an object into a json'
-
-    state = storage.get("State", state_id)
-    if state:
-        storage.delete(state)
-        storage.save()
-        return jsonify({}), 200
-    else:
-        abort(404)
