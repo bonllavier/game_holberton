@@ -8,17 +8,14 @@ from sys import argv
 from lxml import html
 import mechanize
 from http.cookiejar import CookieJar
-from get_token import get_token
 from datetime import date
 
 day = date.today()
 today = day.strftime("%B %d, %Y")
 month = str(today)[0:3]
-month = "Mar"
-print(month)
 day = int(day.strftime("%d"))
 
-def get_id_proyect(email, password, token):
+def get_id_project(email, password):
 
     USERNAME = email
     login_url = "https://intranet.hbtn.io/auth/sign_in"
@@ -33,7 +30,6 @@ def get_id_proyect(email, password, token):
     br.submit()
     page = br.open("https://intranet.hbtn.io/dashboards/my_current_projects")
     list_soup = []
-    print("done")
     soup = BeautifulSoup(page, 'html.parser')
     data = {}
     for n in range(len(soup.find_all('li', {'class': 'list-group-item'}))):
@@ -42,15 +38,12 @@ def get_id_proyect(email, password, token):
         child_cd = d.findChildren('code', recursive=False)
         for i in range(len(child_date)):
             data[child_date[i].string] = child_cd[i].string
-    print(data)
     val = {}
     for key, value in data.items():
         var = key.split(" ")
         if var[0][1:] == month:
-            print(True)
             val[key] = int(var[1])
 
-    print(val)
     get = max(val, key=val.get)
-    print(get)
-    return(data[get])
+    return (data)
+
