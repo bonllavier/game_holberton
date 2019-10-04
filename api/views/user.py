@@ -2,10 +2,12 @@
 'index of status'
 from api.views import app_views
 from flask import jsonify, abort, request
-from models import storage
 from models.get_token import get_token
 from models.user import User
+#from models import storage
+import models
 
+storage = models.storage
 
 @app_views.route('/user/', methods=['POST'])
 def post_user():
