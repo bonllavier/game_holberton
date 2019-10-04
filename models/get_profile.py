@@ -30,7 +30,4 @@ def get_profile(auth_token):
         print('error profile')
         user_json = None
         return None
-    print(user_json)
     return (user_json)
-
-get_profile(sys.argv[1])

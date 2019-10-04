@@ -34,15 +34,17 @@ def get_checkers(id_correction, auth_token):
         checkers_dict = None
         return None
 
+    results_list = []
     count = 0
     if 'result_display' in checkers_dict:
         results = checkers_dict.get('result_display')
+
         if 'checks' in results:
             results_list = results.get('checks')
+            print(results_list)
             for i in results_list:
                 if (i.get('passed') is True):
                     count = count + 1
 
-    print(count)
+    return (count)
 
-get_checkers(sys.argv[1], sys.argv[2])

@@ -40,5 +40,5 @@ def get_token(email, password, api_key):
         auth_token = None
 
     auth_token = auth_token_json.get('auth_token')
-    print(auth_token)
+
     return (auth_token)
