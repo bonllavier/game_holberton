@@ -4,6 +4,9 @@ import uuid
 import models
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
+from models.get_id_proyect import get_id_project
+from models.get_project import get_project
+from models.check_proyect_full import check_prj_full
 
 Base = declarative_base()
 
@@ -27,28 +30,29 @@ class User(Base):
         self.api_key = api_key
         self.auth_token = auth_token
 
-    def get_proyect_list(self, password):
+    def get_id_pj(self, password):
         """get_proyect_list | get code of proyects
         return: list of strings
         """
-        pass
+        return get_id_project(self.email, password)
 
-    def get_tasks(self, proyect_id=None):
+    def get_project_task(self, proyect_id, token):
         """get_tasks | get id of tasks of proyects
         return: list of id tasks
         """
-        pass
+        return get_project(proyect_id, token)
+
     def get_start_correction(self):
         """get_start correction | get code of object corrections
         return: list of id start correction
         """
         pass
 
-    def all_checks(self):
+    def all_checks(self, task_list, token):
         """all checks | get code of object corrections
         return: count of checks in true
         """
-        pass
+        return check_prj_full(task_list, token)
 
     def set_tries(self):
         """set tries | set a property tries
