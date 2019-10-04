@@ -30,7 +30,7 @@ print(projects_dict)
 
 
 print("\n  Tasks: **********************")
-task_list = get_project(299, token)
+task_list = get_project(projects_dict, token)
 print(task_list)
 
 print("\n  Correction id: ********************")
