@@ -36,8 +36,4 @@ def get_correction_id(id_task, auth_token):
         print('error correction')
         correction_json = None
         return None
-
-    print(correction_json.get('id'))
     return (correction_json.get('id'))
-
-get_correction_id(sys.argv[1], sys.argv[2])
