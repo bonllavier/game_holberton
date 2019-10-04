@@ -13,7 +13,6 @@ from datetime import date
 day = date.today()
 today = day.strftime("%B %d, %Y")
 month = str(today)[0:3]
-month = "xxx"
 day = int(day.strftime("%d"))
 
 def get_id_project(email, password):
@@ -44,7 +43,9 @@ def get_id_project(email, password):
         var = key.split(" ")
         if var[0][1:] == month:
             val[key] = int(var[1])
-    if not value:
+    if not val:
+        print("not project available")
         return None
+
     get = max(val, key=val.get)
-    return (data[cd])
+    return (data[get])

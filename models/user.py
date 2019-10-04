@@ -22,19 +22,20 @@ class User(Base):
     turns_done = Column(Integer, default=0)
     points = Column(Integer, default=0)
 
-    def __init__(self, email, api_key, auth_token):
+    def __init__(self, email, api_key, auth_token, done=0):
         """Instantiation of base model class
         """
         self.id = str(uuid.uuid4())
         self.email = email
         self.api_key = api_key
         self.auth_token = auth_token
+        self.done = done
 
     def get_id_pj(self, password):
         """get_proyect_list | get code of proyects
         return: list of strings
         """
-        return get_id_project(self.email, password)
+        self.prj_id = get_id_project(self.email, password)
 
     def get_project_task(self, proyect_id, token):
         """get_tasks | get id of tasks of proyects
@@ -42,22 +43,21 @@ class User(Base):
         """
         return get_project(proyect_id, token)
 
-    def get_start_correction(self):
-        """get_start correction | get code of object corrections
-        return: list of id start correction
-        """
-        pass
-
     def all_checks(self, task_list, token):
         """all checks | get code of object corrections
         return: count of checks in true
         """
         return check_prj_full(task_list, token)
 
-    def set_tries(self):
-        """set tries | set a property tries
+
+    def calc(self):
+        """set to do and done
         """
-        pass
+        task_list = self.get_project_task(self.prj_id, self.auth_token)
+        total_checks = self.all_checks(task_list, self.auth_token)
+        self.turns_done += self.done
+        self.turns_ToDo = total_checks['done']
+        return self.turns_ToDo - self.turns_done
 
     def save(self):
         """save | save a object user
