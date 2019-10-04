@@ -61,7 +61,7 @@ class User(Base):
         """
         task_list = self.get_project_task(self.prj_id, self.auth_token)
         total_checks = self.all_checks(task_list, self.auth_token)
-        self.turns_done += self.done
+#        self.turns_done += self.done
         self.turns_ToDo = total_checks['done']
         return self.turns_ToDo - self.turns_done
 

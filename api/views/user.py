@@ -54,7 +54,7 @@ def put_state_by_id(user_id):
     if not request.get_json():
         abort(400, "Not a JSON")
 
-    user = storage.get(user_id)
+    user = storage.get_user(user_id)
 
     if user:
         for key, value in request.get_json().items():
