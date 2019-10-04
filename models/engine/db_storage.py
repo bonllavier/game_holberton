@@ -35,8 +35,10 @@ class DBStorage:
         """close the session
         Return: Nothing
         """
-        user = self.__session.query(User).filter(User.id == id).one_or_none()
-        return(user)
+        users = self.__session.query(User).all()
+        for user in users:
+            if user.id == id:
+                return(user)
 
     def check_user(self, email):
         """close the session
