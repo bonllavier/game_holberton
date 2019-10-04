@@ -9,6 +9,14 @@ from lxml import html
 import mechanize
 from http.cookiejar import CookieJar
 from get_token import get_token
+from datetime import date
+
+day = date.today()
+today = day.strftime("%B %d, %Y")
+month = str(today)[0:3]
+month = "Mar"
+print(month)
+day = int(day.strftime("%d"))
 
 def get_id_proyect(email, password, token):
 
@@ -27,11 +35,22 @@ def get_id_proyect(email, password, token):
     list_soup = []
     print("done")
     soup = BeautifulSoup(page, 'html.parser')
-    soup.prettify(formatter=lambda s: s.replace(u'\xa0', ''))
-    for i in range(len(soup.findAll('code')) - 1):
-        spoon = soup.findAll('code')[i]
-        spoon = spoon.string
-        list_soup.append(spoon)
-    print(list_soup)
-    print(i)
-    return(list_soup)
+    data = {}
+    for n in range(len(soup.find_all('li', {'class': 'list-group-item'}))):
+        d = soup.find_all('li', {'class': 'list-group-item'})[n]
+        child_date = d.findChildren('em', recursive=False)
+        child_cd = d.findChildren('code', recursive=False)
+        for i in range(len(child_date)):
+            data[child_date[i].string] = child_cd[i].string
+    print(data)
+    val = {}
+    for key, value in data.items():
+        var = key.split(" ")
+        if var[0][1:] == month:
+            print(True)
+            val[key] = int(var[1])
+
+    print(val)
+    get = max(val, key=val.get)
+    print(get)
+    return(data[get])
