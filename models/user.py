@@ -31,6 +31,12 @@ class User(Base):
         self.auth_token = auth_token
         self.done = done
 
+    def set_token(self, token):
+        self.auth_token = token
+
+    def set_done(self, done=0):
+        self.done = done
+
     def get_id_pj(self, password):
         """get_proyect_list | get code of proyects
         return: list of strings

@@ -30,16 +30,23 @@ def post_user():
     if auth_token:
         user = storage.check_user(email)
         if user:
-            pass
-            ##definir variables en db
+            user.set_token(auth_token)
+            user.set_done()
+            user.get_id_pj(password)
+            available_turns = user.calc()
+            return jsonify({"points": user.points,
+                            "available_turns": available_turns,
+                            "id_user": user.id}), 200
         else:
-            new_user = User(email, password, api_key, auth_token)
-            new_user.get_id_proyect(password)
+            new_user = User(email, api_key, auth_token)
+            new_user.get_id_pj(password)
             new_user.save()
-
-            return jsonify({"user": "created"}), 200
+            available_turns = new_user.calc()
+            return jsonify({"points": new_user.points,
+                            "available_turns": available_turns,
+                            "id_user": new_user.id}), 200
     else:
-        return jsonify({"email": email, "tries": 0, "status": None}), 400
+        return jsonify({"id": None, "available_turns": 0, "points": None}), 400
 
 @app_views.route('/points/<user_id>', methods=['PUT'])
 def put_state_by_id(user_id):
