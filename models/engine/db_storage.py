@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This is the file DBStorage class for AirBnB"""
 import json
-import os
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
 from models.user import User, Base
@@ -25,10 +24,10 @@ class DBStorage:
             Nothing
         """
 
-        s = 'mysql+mysqldb://{}:{}@{}/{}'.format(os.environ["HBNB_MYSQL_USER"],
-                                                 os.environ["HBNB_MYSQL_PWD"],
-                                                 os.environ["HBNB_MYSQL_HOST"],
-                                                 os.environ["HBNB_MYSQL_DB"])
+        s = 'mysql+mysqldb://{}:{}@{}/{}'.format("app_dev",
+                                                 "app_dev_pwd",
+                                                 "0.0.0.0",
+                                                 "app_dev_db")
         self.__engine = create_engine(s, pool_pre_ping=True)
 
 
