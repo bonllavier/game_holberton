@@ -31,6 +31,16 @@ class DBStorage:
                                                  os.environ["HBNB_MYSQL_DB"])
         self.__engine = create_engine(s, pool_pre_ping=True)
 
+
+    def check_user(self, email):
+        """close the session
+        Return: Nothing
+        """
+        print(email)
+        check = self.__session.query(User).filter(User.email == email).one_or_none()
+        print(check)
+        return(check)
+
     def close(self):
         """close the session
         Return: Nothing
