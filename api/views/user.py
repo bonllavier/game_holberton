@@ -38,25 +38,23 @@ def post_user():
     else:
         return jsonify({"email": email, "tries": 0, "status": None}), 400
 
-@app_views.route('/states/<state_id>', methods=['PUT'])
-def put_state_by_id(state_id):
+@app_views.route('/points/<user_id>', methods=['PUT'])
+def put_state_by_id(user_id):
     'retrive an object into a json'
     if not request.get_json():
         abort(400, "Not a JSON")
 
-    state = storage.get("State", state_id)
+    user = storage.get(user_id)
 
-    if state:
+    if user:
         for key, value in request.get_json().items():
-            if key != "id" and key != "created_at" and key != "updated_at":
-                setattr(state, key, value)
-        state.save()
+            if key == "points" or key == "turns_done":
+                setattr(user, key, value)
+        user.save()
     else:
         abort(404)
 
-    return jsonify(state.to_dict()), 200
-
-
+    return jsonify({"status": "success"}), 200
 
 
 @app_views.route("/user")
