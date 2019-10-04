@@ -7,7 +7,7 @@ from models.get_project import get_project
 from models.get_id_proyect import get_id_project
 from models.get_correction import get_correction_id
 from models.get_checkers import get_checkers
-
+from models.check_proyect_full import check_prj_full
 
 import sys
 
@@ -30,16 +30,9 @@ print(projects_dict)
 
 
 print("\n  Tasks: **********************")
-task_list = get_project(300, token)
+task_list = get_project(299, token)
 print(task_list)
 
 print("\n  Correction id: ********************")
-size = task_list.__len__
 
-for (i = 0; i < size; i++):
-    correction_id = get_correction_id(task_list[i], token)
-    print(i, correction_id, task_list[correction_id])
-
-print("\n  Checkers: **********************")
-checkers_list = get_checkers(correction_id, token)
-print(checkers_list)
+tasks = check_prj_full(task_list, token)

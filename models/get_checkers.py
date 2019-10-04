@@ -25,10 +25,16 @@ def get_checkers(id_correction, auth_token):
     h = {
         'Content-Type': 'application/json',
     }
-    
-    time.sleep(15)
-    url_response = requests.get(dest_url, h)
-    checkers_dict = url_response.json()
+    checkers_dict = {}
+    test = 1
+    while test:
+        time.sleep(5)
+        url_response = requests.get(dest_url, h)
+        checkers_dict = url_response.json()
+        if 'Done' not in checkers_dict.get('status'):
+            print("try again")
+        else:
+            test = 0
 
     if ('error' in checkers_dict):
         print('error checkers')
@@ -47,5 +53,4 @@ def get_checkers(id_correction, auth_token):
                 if (i.get('passed') is True):
                     count = count + 1
 
-    return (count)
-
+    return (count, results_list)
