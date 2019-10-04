@@ -32,13 +32,18 @@ class DBStorage:
         self.__engine = create_engine(s, pool_pre_ping=True)
 
 
+    def get_user(self, id):
+        """close the session
+        Return: Nothing
+        """
+        user = self.__session.query(User).filter(User.id == id).one_or_none()
+        return(user)
+
     def check_user(self, email):
         """close the session
         Return: Nothing
         """
-        print(email)
         check = self.__session.query(User).filter(User.email == email).one_or_none()
-        print(check)
         return(check)
 
     def close(self):

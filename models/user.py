@@ -15,9 +15,9 @@ class User(Base):
     id = Column(String(60), primary_key=True, nullable=False)
     email = Column(String(60), nullable=False)
     api_key = Column(String(60), nullable=False)
-    auth_token = Column(String(128), nullable=False)
-    tries = Column(Integer, default=0)
-
+    turns_ToDo = Column(Integer, default=0)
+    turns_done = Column(Integer, default=0)
+    points = Column(Integer, default=0)
 
     def __init__(self, email, api_key, auth_token):
         """Instantiation of base model class
