@@ -15,7 +15,11 @@ today = day.strftime("%B %d, %Y")
 month = str(today)[0:3]
 day = int(day.strftime("%d"))
 
+
 def get_id_project(email, password):
+    """ get a projet id from a given user
+    the function select the last finished proyect based in the currend date
+    through scrapping in the intranet with the module BeautifulSoup """
 
     USERNAME = email
     login_url = "https://intranet.hbtn.io/auth/sign_in"

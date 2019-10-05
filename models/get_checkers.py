@@ -4,6 +4,7 @@
 import sys
 import time
 
+
 def get_checkers(id_correction, auth_token):
     """
     @id_correction: (int) correction id
