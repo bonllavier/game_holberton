@@ -10,12 +10,7 @@ It is a game that takes advantage of the data provided by the Holberton School A
 
 ![alt text](https://c.imge.to/2019/10/05/vEiRhm.png "Hack Pot Logo")
 
-## Set up enviroment
-sudo apt-get install python3-bs4
-sudo apt-get install python-pip
-sudo pip3 install -U mechanize
-sudo pip3 install --upgrade beautifulsoup4
-sudo pip3 install requests --upgrade
+3. With your data entered the program obtains the number of possible attempts according to the total checkers of the last project carried out. :muscle:
 
 ## Team members
 - Javier Bonilla [GitHub](https://github.com/javb92)
