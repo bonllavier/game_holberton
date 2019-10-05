@@ -1,22 +1,34 @@
-# Hack day: Checker challenge!
-- Team members:
-- Javier Bonilla
-- Rodrigo Cruz
-- Giovanny Rubio Albornoz
-- Samuel Florez
-- Miguel Ángel Fajardo Carantón
-- Diego Rodríguez Orejuela
-- Abdel Giovanny Perez
+# ![alt text](https://a.imge.to/2019/10/05/vEiYLk.png "Hack Pot Logo")
 
-# The project
-By team of ~8, you are free to build what you want, it just needs to be related to Holberton and the Checker. You are starting now until tomorrow night.
+It is a game that takes advantage of the data provided by the Holberton School API, so that a student has added value for his effort in the development of projects.
 
-You can build a web app, a desktop app, a game, a webhook, a SDK, a Git hook, etc. the only limit is your creativity (and our API limits!) You can also integrate other API like Github or Twitter for example.
+## Usage
 
+1. Please enter the following link [HACK POT](https://www.google.com) :smile:
 
-# Set up enviroment
-sudo apt-get install python3-bs4
-sudo apt-get install python-pip
-sudo pip3 install -U mechanize
-sudo pip3 install --upgrade beautifulsoup4
-sudo pip3 install requests --upgrade
+2. Please enter your email, password and API key (remember that to obtain your API Key, you can find it inside your intranet in My resources-> Tools) :wink:
+
+![alt text](https://c.imge.to/2019/10/05/vEiRhm.png "Hack Pot login")
+
+3. With your data entered the program obtains the number of possible attempts according to the total checkers of the last project carried out. :muscle:
+
+4. After entering, you will find the following screen, all you have to do is pull the lever to earn points and enjoy. :sunglasses:
+
+![alt text](https://b.imge.to/2019/10/05/vEnvuy.png "Hack Pot main")
+
+## Rules
+- 3 Juliens gets 50,000 points
+- 3 Holbertons or 3 Naomis or 3 Victors or 3 Guillaumes get 30000 points
+- 3 C or 3 JS or 3 Pythons or 3 Ubuntus gets 15,000 points
+- 2 Juliens + 1 anyone gets 5000 points
+- 2 Holbertons or 2 Naomis or 2 Victors or 2 Guillaumes + 1 anyone gets 2000 points
+- 2 C or 2 JS or 2 Pythons or 2 Ubuntus + 1 anyone gets 1000 points
+
+## Team members
+- Javier Bonilla [:octocat:](https://github.com/javb92)
+- Giovanny Rubio Albornoz [:octocat:](https://github.com/GioRubioHolberton)
+- Samuel Alexander Florez [:octocat:](https://github.com/muxanz)
+- Miguel Ángel Fajardo Carantón [:octocat:](https://github.com/miguelfajardoc)
+- Diego Rodríguez Orejuela [:octocat:](https://github.com/DiegoOrejuela)
+- Abdel Giovanny Perez [:octocat:](https://github.com/ledbagholberton)
+- Rodrigo Cruz [:octocat:](https://github.com/)
