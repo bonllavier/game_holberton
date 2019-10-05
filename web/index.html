@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Hack Pot</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://use.fontawesome.com/7162430c1a.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <!-- unity -->
+  <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/web_gl_export2.json", {onProgress: UnityProgress});
+    </script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+    </div>
+  </header>
+
+  <main role="main" class="inner cover">
+     <div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 600px"></div>
+    </div>
+  </main>
+
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <div></div>
+      <div class="float-left"><img src="TemplateData/logoHack.png"></div>
+      <div class="float-right">Made with <i class="fa fa-heart" style="color: red;" aria-hidden="true"></i> by Bogota Holbis</div>
+    </div>
+  </footer>
+</div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
