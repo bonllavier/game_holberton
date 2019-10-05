@@ -41,7 +41,9 @@ class User(Base):
         """get_proyect_list | get code of proyects
         return: list of strings
         """
-        self.prj_id = get_id_project(self.email, password)
+        self.prj_id = 292
+#        self.prj_id = get_id_project(self.email, password)
+
 
     def get_project_task(self, proyect_id, token):
         """get_tasks | get id of tasks of proyects
@@ -63,7 +65,7 @@ class User(Base):
         total_checks = self.all_checks(task_list, self.auth_token)
 #        self.turns_done += self.done
         self.turns_ToDo = total_checks['done']
-        return self.turns_ToDo - self.turns_done
+        return self.turns_ToDo - int(self.turns_done or 0)
 
     def save(self):
         """save | save a object user
