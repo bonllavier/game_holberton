@@ -10,6 +10,7 @@ from models.check_proyect_full import check_prj_full
 
 Base = declarative_base()
 
+
 class User(Base):
     """This class will defines all common attributes/methods
     for other classes
@@ -32,9 +33,12 @@ class User(Base):
         self.done = done
 
     def set_token(self, token):
+        """ setter the token of a given user when the user exist in
+        database """
         self.auth_token = token
 
     def set_done(self, done=0):
+        """ set the done tries when the user exist in database """
         self.done = done
 
     def get_id_pj(self, password):
@@ -43,7 +47,6 @@ class User(Base):
         """
         self.prj_id = 292
 #        self.prj_id = get_id_project(self.email, password)
-
 
     def get_project_task(self, proyect_id, token):
         """get_tasks | get id of tasks of proyects
@@ -56,7 +59,6 @@ class User(Base):
         return: count of checks in true
         """
         return check_prj_full(task_list, token)
-
 
     def calc(self):
         """set to do and done

@@ -4,7 +4,11 @@
 from models.get_correction import get_correction_id
 from models.get_checkers import get_checkers
 
+
 def check_prj_full(task_list, token):
+    """ check all the proyects from a given task list
+    and return a dictionary with the total task passed
+    and the total task"""
 
     task = {
         'done': 0,
@@ -15,7 +19,7 @@ def check_prj_full(task_list, token):
     for i in range(size):
         correction_id = get_correction_id(task_list[i], token)
         print(i, correction_id, task_list[i])
-        print("\n  Checkers: {:d}".format(i) )
+        print("\n  Checkers: {:d}".format(i))
         checkers = get_checkers(correction_id, token)
         print(checkers)
         task['done'] += checkers[0]
