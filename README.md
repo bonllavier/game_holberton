@@ -16,6 +16,7 @@ It is a game that takes advantage of the data provided by the Holberton School A
 
 ![alt text](https://b.imge.to/2019/10/05/vEnvuy.png "Hack Pot main")
 ![alt text](https://i.imgur.com/u70hLx1.png "Hack Pot 2 main screen")
+![alt text](https://i.imgur.com/8KJSbw6.png "Hack Pot 3 main screen")
 
 ## Rules
 - 3 Juliens gets 50,000 points
