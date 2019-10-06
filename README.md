@@ -7,7 +7,7 @@ This is webpage, so you jst need to open the link below in Usage Section.
 
 ## Usage
 
-1. Please enter the following link [HACK POT](https://hackpot-holbi.firebaseapp.com/) :smile:
+1. Please enter the following link [HACK POT](http://hackpotholbi.droppages.com/) :smile:
 
 2. Please enter your email, password and API key (remember that to obtain your API Key, you can find it inside your intranet in My resources-> Tools) :wink:
 
