@@ -3,7 +3,7 @@
 It is a game that takes advantage of the data provided by the Holberton School API, so that a student has added value for his effort in the development of projects.
 
 ## How to install:
-This is webpage, so you jst need to open the link below in Usage Section.
+This is webpage, so you just need to open the link below in Usage Section.
 
 ## Usage
 
