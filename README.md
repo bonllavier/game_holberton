@@ -15,6 +15,7 @@ It is a game that takes advantage of the data provided by the Holberton School A
 4. After entering, you will find the following screen, all you have to do is pull the lever to earn points and enjoy. :sunglasses:
 
 ![alt text](https://b.imge.to/2019/10/05/vEnvuy.png "Hack Pot main")
+![alt text](https://i.imgur.com/u70hLx1.png "Hack Pot 2 main screen")
 
 ## Rules
 - 3 Juliens gets 50,000 points
