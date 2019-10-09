@@ -4,6 +4,10 @@ It is a game that takes advantage of the data provided by the Holberton School A
 
 ## How to install:
 This is webpage, so you just need to open the link below in Usage Section.
+### How to open the Unity Project:
+The Unity project is avaliable in this link: https://drive.google.com/open?id=1Gs3YAJZ15FfnNPZAiycjQuKHpV2fmz4Z
+Because git doesnt let me upload files greater than 100 mb.
+Download the folder and just open it like a existing project in Unity Hub. Let it load, and thats all.
 
 ## Usage
 
