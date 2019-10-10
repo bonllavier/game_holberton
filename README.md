@@ -12,7 +12,7 @@ Download the folder and just open it like a existing project in Unity Hub. Let i
 ## Usage
 
 1. Please enter the following link [HACK POT](http://hackpotholbi.droppages.com/) :smile: 
-BACKUPS: [HACK POT](https://hackpot-holbi.firebaseapp.com/) [HACK POT](http://diegoorejuela.tech/) 
+BACKUPS: [HACK POT](https://hackpot-holbi.firebaseapp.com/)
 
 2. Please enter your email, password and API key (remember that to obtain your API Key, you can find it inside your intranet in My resources-> Tools) :wink:
 
